@@ -10,19 +10,36 @@ Maven is a code build tool which used to convert your code to an artifact. this 
  - Link : https://maven.apache.org/download.cgi
     ```sh
      # Creating maven directory under /opt
-     mkdir /opt/maven
-     cd /opt/maven
+     # mkdir /opt/maven
+     cd /opt
      # downloading maven version 3.6.0
      wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
      tar -xvzf apache-maven-3.6.3-bin.tar.gz
+     mv apache-maven-3.6.3 maven
      ```
 	
 1. Setup M2_HOME and M2 paths in .bash_profile of the user and add these to the path variable
    ```sh
    vi ~/.bash_profile
-   M2_HOME=/opt/maven/apache-maven-3.6.1
+   M2_HOME=/opt/maven
    M2=$M2_HOME/bin
    PATH=<Existing_PATH>:$M2_HOME:$M2
+   
+   # .bash_profile
+
+   # Get the aliases and functions
+   if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+   fi
+
+   # User specific environment and startup programs
+   JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.265.b01-1.amzn2.0.1.x86_64
+   M2_HOME=/opt/maven
+   M2=$M2_HOME/bin
+   PATH=$PATH:$HOME/bin:$JAVA_HOME:$M2_HOME:$M2
+
+
+   export PATH
    ```
 #### Checkpoint 
 1. logoff and login to check maven version
